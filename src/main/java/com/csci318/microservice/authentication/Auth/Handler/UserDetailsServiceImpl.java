@@ -1,6 +1,6 @@
 package com.csci318.microservice.authentication.Auth.Handler;
 
-import com.csci318.microservice.authentication.Clients.UserServiceClient;
+import com.csci318.microservice.authentication.Services.UserServiceClient;
 import com.csci318.microservice.authentication.DTO.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

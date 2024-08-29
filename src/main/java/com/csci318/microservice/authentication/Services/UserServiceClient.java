@@ -1,4 +1,4 @@
-package com.csci318.microservice.authentication.Clients;
+package com.csci318.microservice.authentication.Services;
 
 import com.csci318.microservice.authentication.DTO.User;
 import com.csci318.microservice.authentication.DTO.UserDTORequest;

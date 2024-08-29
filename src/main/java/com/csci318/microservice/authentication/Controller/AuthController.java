@@ -2,10 +2,9 @@ package com.csci318.microservice.authentication.Controller;
 
 import com.csci318.microservice.authentication.Auth.Handler.UserDetailsImpl;
 import com.csci318.microservice.authentication.Auth.Jwts.JwtUtils;
-import com.csci318.microservice.authentication.Clients.UserServiceClient;
+import com.csci318.microservice.authentication.Services.UserServiceClient;
 import com.csci318.microservice.authentication.DTO.Auth.UserAuthRequest;
 import com.csci318.microservice.authentication.DTO.Auth.UserAuthResponse;
-import com.csci318.microservice.authentication.DTO.User;
 import com.csci318.microservice.authentication.DTO.UserDTORequest;
 import com.csci318.microservice.authentication.DTO.UserDTOResponse;
 import org.slf4j.Logger;

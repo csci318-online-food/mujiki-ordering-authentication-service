@@ -13,7 +13,7 @@ import java.util.UUID;
 @Getter
 @Setter
 public class RestaurantDTOResponse {
-    private UUID id;
+    private String id;
     private String restaurantName;
     private String restaurantPhone;
     private String email;
@@ -23,4 +23,5 @@ public class RestaurantDTOResponse {
     private Double rating;
     private String description;
     private boolean isOpened;
+    private String role;
 }

@@ -21,6 +21,16 @@ public class RestaurantServiceClient {
 
     public RestaurantDTOResponse createRestaurant(RestaurantDTORequest restaurantDTORequest) {
         Restaurant restaurant = restTemplate.postForObject(RESTAURANT_URL + "/signup", restaurantDTORequest, Restaurant.class);
-        return new RestaurantDTOResponse(restaurant.getId(), restaurant.getName(), restaurant.getPhone(), restaurant.getEmail(), restaurant.getCuisine(), restaurant.getOpenTime(), restaurant.getCloseTime(), restaurant.getRating(), restaurant.getDescription(), restaurant.isOpened());
+        return new RestaurantDTOResponse(restaurant.getId(),
+                                            restaurant.getName(),
+                                            restaurant.getPhone(),
+                                            restaurant.getEmail(),
+                                            restaurant.getCuisine(),
+                                            restaurant.getOpenTime(),
+                                            restaurant.getCloseTime(),
+                                            restaurant.getRating(),
+                                            restaurant.getDescription(),
+                                            restaurant.isOpened(),
+                                            restaurant.getRole());
     }
 }

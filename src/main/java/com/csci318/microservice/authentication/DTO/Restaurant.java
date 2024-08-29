@@ -13,7 +13,7 @@ import java.util.UUID;
 @Getter
 @Setter
 public class Restaurant {
-    private UUID id;
+    private String id;
     private String name;
     private String phone;
     private String email;
@@ -24,4 +24,5 @@ public class Restaurant {
     private Double rating;
     private String description;
     private boolean isOpened;
+    private String role;
 }

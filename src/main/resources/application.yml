@@ -12,3 +12,7 @@ server:
 user:
     url:
         service: http://localhost:81/api/user
+
+restaurant:
+    url:
+        service: http://localhost:82/api/restaurant

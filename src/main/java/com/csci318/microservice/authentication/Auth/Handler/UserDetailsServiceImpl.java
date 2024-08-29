@@ -1,7 +1,7 @@
 package com.csci318.microservice.authentication.Auth.Handler;
 
 import com.csci318.microservice.authentication.Clients.UserServiceClient;
-import com.csci318.microservice.authentication.DTO.UserDTO;
+import com.csci318.microservice.authentication.DTO.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -16,7 +16,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        UserDTO user = userServiceClient.getUserByUsername(username);
+        User user = userServiceClient.getUserByUsername(username);
 
         if (user == null) {
             throw new UsernameNotFoundException("User not found with username: " + username);

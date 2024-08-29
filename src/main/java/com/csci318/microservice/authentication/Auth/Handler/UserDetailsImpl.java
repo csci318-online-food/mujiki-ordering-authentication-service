@@ -1,6 +1,6 @@
 package com.csci318.microservice.authentication.Auth.Handler;
 
-import com.csci318.microservice.authentication.DTO.UserDTO;
+import com.csci318.microservice.authentication.DTO.User;
 import lombok.Getter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -12,6 +12,7 @@ import java.util.List;
 
 public class UserDetailsImpl implements UserDetails {
 
+    @Getter
     private final String id;
     private final String username;
     private final String password;
@@ -24,7 +25,7 @@ public class UserDetailsImpl implements UserDetails {
         this.authorities = authorities;
     }
 
-    public static UserDetailsImpl build(UserDTO user) {
+    public static UserDetailsImpl build(User user) {
         List<GrantedAuthority> authorities = Collections.singletonList(new SimpleGrantedAuthority(user.getRole()));
 
         return new UserDetailsImpl(

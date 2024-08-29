@@ -19,7 +19,5 @@ public class RestaurantDTORequest {
     private String cuisine;
     private LocalTime openTime;
     private LocalTime closeTime;
-    private Double rating;
     private String description;
-    private boolean isOpened;
 }

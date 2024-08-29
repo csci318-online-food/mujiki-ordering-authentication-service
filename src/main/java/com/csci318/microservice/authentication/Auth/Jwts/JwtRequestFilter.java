@@ -1,5 +1,6 @@
 package com.csci318.microservice.authentication.Auth.Jwts;
 
+import com.csci318.microservice.authentication.Auth.Handler.RestaurantDetailsServiceImpl;
 import com.csci318.microservice.authentication.Auth.Handler.UserDetailsServiceImpl;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -25,6 +26,9 @@ public class JwtRequestFilter extends OncePerRequestFilter {
     private UserDetailsServiceImpl userDetailsService;
 
     @Autowired
+    private RestaurantDetailsServiceImpl restaurantDetailsService;
+
+    @Autowired
     private JwtUtils jwtUtils;
 
     private String parseJwt(HttpServletRequest request) {
@@ -43,8 +47,20 @@ public class JwtRequestFilter extends OncePerRequestFilter {
             String jwt = parseJwt(request);
             if (jwt != null && jwtUtils.validateJwtToken(jwt)) {
                 String username = jwtUtils.getUsernameFromJwtToken(jwt);
+                String requestURI = request.getRequestURI();
 
-                UserDetails userDetails = userDetailsService.loadUserByUsername(username);
+                logger.info("Request URI: {}", requestURI);
+                logger.info("JWT Username: {}", username);
+
+                UserDetails userDetails;
+                if (requestURI.contains("restaurant")) {
+                    logger.info("Using RestaurantDetailsServiceImpl for authentication");
+                    userDetails = restaurantDetailsService.loadUserByUsername(username);
+                } else {
+                    logger.info("Using UserDetailsServiceImpl for authentication");
+                    userDetails = userDetailsService.loadUserByUsername(username);
+                }
+
                 UsernamePasswordAuthenticationToken authentication =
                         new UsernamePasswordAuthenticationToken(
                                 userDetails,

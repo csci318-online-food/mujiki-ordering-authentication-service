@@ -1,5 +1,6 @@
 package com.csci318.microservice.authentication.Auth.Jwts;
 
+import com.csci318.microservice.authentication.Auth.Handler.RestaurantDetailsImpl;
 import com.csci318.microservice.authentication.Auth.Handler.UserDetailsImpl;
 import io.jsonwebtoken.*;
 import org.slf4j.Logger;
@@ -41,15 +42,14 @@ public class JwtUtils {
     }
 
     // Generate token for restaurant
-//    public String generateTokenForRestaurant(RestaurantDetailsImpl restaurantDetails) {
-//        JwtBuilder builder = Jwts.builder()
-//                .setSubject(restaurantDetails.getUsername())
-//                .setIssuedAt(new Date())
-//                .setExpiration(new Date((new Date()).getTime() + expiration))
-//                .signWith(key(), SignatureAlgorithm.HS512);
-//
-//        return builder.compact();
-//    }
+    public String generateTokenForRestaurant(RestaurantDetailsImpl restaurantDetails) {
+        return Jwts.builder()
+                .setSubject(restaurantDetails.getUsername())
+                .setIssuedAt(new Date())
+                .setExpiration(new Date((new Date()).getTime() + expiration))
+                .signWith(key(), SignatureAlgorithm.HS512)
+                .compact();
+    }
 
     // Other methods (parseJwt, getUsernameFromJwtToken, etc.)
     public boolean validateJwtToken(String authToken) {
@@ -86,5 +86,6 @@ public class JwtUtils {
                 .getBody()
                 .getSubject();
     }
+
 }
 

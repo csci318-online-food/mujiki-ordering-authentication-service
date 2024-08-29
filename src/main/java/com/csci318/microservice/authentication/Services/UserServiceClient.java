@@ -22,6 +22,7 @@ public class UserServiceClient {
 
     // Get user by username
     public User getUserByUsername(String username) {
+        log.info("This method is called");
         return restTemplate.getForObject(USER_URL + "/" + username, User.class);
     }
 

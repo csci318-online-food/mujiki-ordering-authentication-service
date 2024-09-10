@@ -1,5 +1,6 @@
 package com.csci318.microservice.authentication.DTO;
 
+import com.csci318.microservice.authentication.DTO.ObjValue.PhoneNumber;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,7 +16,7 @@ import java.util.UUID;
 public class RestaurantDTOResponse {
     private String id;
     private String restaurantName;
-    private String restaurantPhone;
+    private PhoneNumber phone;
     private String email;
     private String cuisine;
     private LocalTime openTime;
